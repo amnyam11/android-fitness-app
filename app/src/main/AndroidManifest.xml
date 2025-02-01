@@ -7,7 +7,7 @@
         tools:ignore="ScopedStorage" />
 
     <application
-        android:name=".MyApp"
+        android:name=".Aplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,19 +17,19 @@
         android:enableOnBackInvokedCallback="true">
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.Main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.RegistrationActivity" />
-        <activity android:name=".activities.EmptystateActivity" />
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.NewActivity" />
-        <activity android:name=".activities.ChangePasswordActivity" />
-        <activity android:name=".activities.ActivityDetailActivity"/>
+        <activity android:name=".activities.Registration" />
+        <activity android:name=".activities.EmptyState" />
+        <activity android:name=".activities.Login" />
+        <activity android:name=".activities.New" />
+        <activity android:name=".activities.ChangePassword" />
+        <activity android:name=".activities.ActivityDetail"/>
 
     </application>
 </manifest>

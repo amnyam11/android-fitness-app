@@ -26,6 +26,7 @@ class ActivityDetail : AppCompatActivity() {
     private lateinit var sessionManager: Session
     private var activityId: Int = -1
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -44,10 +45,19 @@ class ActivityDetail : AppCompatActivity() {
         val commentEditText = findViewById<EditText>(R.id.comment_edit_text)
 
         activityId = intent.getIntExtra("activity_id", -1)
-
+        if (activityId == -1) {
+            Toast.makeText(this, "Ошибка: ID активности не найден", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
         lifecycleScope.launch {
             val activity = withContext(Dispatchers.IO) {
                 database.activityDao().getActivityById(activityId)
+            }
+            if (activity == null) {
+                Toast.makeText(this@ActivityDetail, "Активность не найдена", Toast.LENGTH_SHORT).show()
+                finish()
+                return@launch
             }
             activity?.let {
                 activityType.text = it.type
